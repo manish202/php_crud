@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery ajax crud date 21/06/2022</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .box{
+            margin-top: 20px;
+        }
+        .box h1{
+            text-align: center;
+            text-transform: uppercase;
+            background-color: cornflowerblue;
+            color: white;
+            padding: 10px;
+        }
+        .popup{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: all 0.4s;
+        }
+        .popup.active{
+            display: flex;
+        }
+        .popup form{
+            position: relative;
+            min-width: 40%;
+            background: lightgray;
+            padding: 30px;
+            border-radius: 4px;
+            text-transform: capitalize;
+        }
+        .popup .close{
+            position: absolute;
+            right: -17px;
+            top: -17px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container box">
+        <h1>jquery ajax crud</h1>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+            <div class="container-fluid">
+                <form class="d-flex" id="search">
+                    <input class="form-control me-2 search" type="search" placeholder="Search">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <h2 class="text-capitalize p-3">all records</h2>
+        <button class='btn btn-primary mb-2 add'>Add New Record</button>
+        <table class="table text-center table-hover text-capitalize">
+            <thead>
+                <tr><td colspan="4" class="warn"></td></tr>
+                <tr>
+                    <th>id</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="popup add-form">
+        <form action="" id="add_data">
+            <button type="button" class="btn btn-success close">X</button>
+            <div class="mb-3">
+                <label class="form-label">first name</label>
+                <input type="text" class="form-control fname" placeholder="first name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">last name</label>
+                <input type="text" class="form-control lname" placeholder="last name" required>
+            </div>
+            <div class="mb-3 warn"></div>
+            <button type="submit" class="btn btn-success">add</button>
+        </form>
+    </div>
+    <div class="popup edit-form">
+        <form action="" id="edit_data">
+            <button type="button" class="btn btn-success close">X</button>
+            <div class="mb-3">
+                <label class="form-label">first name</label>
+                <input type="text" class="form-control fname" placeholder="first name" required>
+                <input type="hidden" class="sid">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">last name</label>
+                <input type="text" class="form-control lname" placeholder="last name" required>
+            </div>
+            <div class="mb-3 warn"></div>
+            <button type="submit" class="btn btn-success">update</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
